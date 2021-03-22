@@ -21,10 +21,13 @@ Once Ubuntu has been installed correctly it is necessary to install Docker and d
 ### Docker installation
 ### k3s/k3d
 ### Calico networking
+### kubectl installation
 
 ## 2. 4G emulation
 
 ## 3. Testing
+
+### ping
 
 ## References
 
