@@ -19,17 +19,38 @@ This answer seems exaustive for: "How to install Ubuntu 18.04 LTS alongside Wind
 Once Ubuntu has been installed correctly it is necessary to install Docker and deploy Kubernetes local cluster.
 
 ### Docker installation
+
+Install Docker https://www.docker.com/
+
 ### k3s/k3d
-### Calico networking
+
+Use k3d to deploy a Kubernetes cluster with Docker containers as Kubernetes cluster nodes without Flannel networking. https://k3d.io/
+
 ### kubectl installation
 
+Install kubectl to administrate better the cluster: https://v1-18.docs.kubernetes.io/docs/tasks/tools/install-kubectl/
+
+### Calico networking
+
+Then configure Calico netowrkingas described on official website: https://www.projectcalico.org/
+
 ## 2. 4G emulation
+
+The images used as base for the Docker container images are: https://github.com/LABORA-INF-UFG/NetSoft2020-Tutorial4-Demo2-Exp1
+
+They have been modified and re-uploaded to Docker Hub, then used for the Kubernetes manifests to deploy 4G components.
+
+Use manifests with "kubectl apply -f <<name_of_manifest.yaml>>" to deploy 4G components.
 
 ## 3. Testing
 
 ### ping
 
+Ping from UE through tunnel interface to internet.
+
 ## References
+
+LABORA projects and k3d have been great tools used to deploy thi environment.
 
 
 
