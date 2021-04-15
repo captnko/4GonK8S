@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: epc
+  labels:
+    app: epc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: epc
+  template:
+    metadata:
+      labels:
+        app: epc
+    spec:
+      containers:
+       - name: epc
+         image: captnko/epc
+         securityContext:
+          privileged: true
+          capabilities:
+            add:
+              - NET_ADMIN
+         # to keep running and ready
+         command: [ "/bin/bash", "-c", "--" ]
+         args:
+           - bash /open5gs/runEPC.sh;
+             while true;
+             do sleep 30;
+             done;
+      volumes:            
+        - name: dev-net-tun
+          hostPath:
+            path: /dev/net/tun
+
+
+#     resources:
+#           requests:
+#             memory: "64Mi"
+#             cpu: "250m"
+#           limits:
+#             memory: "512Mi"
+#             cpu: "1000m"
